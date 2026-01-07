@@ -1,0 +1,1530 @@
+[
+  {
+    "instruction": "I need to analyze some simulation data stored in `/home/user/simulations/output_data.h5` in read-only mode to avoid accidentally modifying it.",
+    "solution": {
+      "instruction": "I need to analyze some simulation data stored in `/home/user/simulations/output_data.h5` in read-only mode to avoid accidentally modifying it.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to open an HDF5 file in read-only mode. The `open_file` API is designed for this purpose. The path to the file is `/home/user/simulations/output_data.h5` and the mode should be `r` for read-only access.",
+          "tool": "open_file",
+          "args": {
+            "path": "/home/user/simulations/output_data.h5",
+            "mode": "r"
+          },
+          "status": "pending",
+          "expected_result": "Success message with filename and mode"
+        }
+      ],
+      "final_answer": "I will open the file `/home/user/simulations/output_data.h5` in read-only mode. The API call is: `open_file(path='/home/user/simulations/output_data.h5', mode='r')`",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "open_file(path: string, mode: string = r)\n\nOpen an HDF5 file with lazy loading. Must be called before any other file operations.\n\nParameters:\n  - path (string, required): Path to the HDF5 file\n  - mode (string, optional): Access mode: 'r' (read-only), 'r+' (read/write), 'w' (write), 'a' (append)\n\nReturns: string - Success message with filename and mode\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "User wants to analyze data from a simulation output file.",
+      "required_tools": [
+        "hdf5_open_file"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I want to open a new HDF5 file at `/scratch/my_analysis.h5` in write mode ('w') to store the results of my data processing pipeline. This file doesn't exist yet.",
+    "solution": {
+      "instruction": "I want to open a new HDF5 file at `/scratch/my_analysis.h5` in write mode ('w') to store the results of my data processing pipeline. This file doesn't exist yet.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to open a new HDF5 file in write mode. The `open_file` API is designed for this purpose. The path should be `/scratch/my_analysis.h5` and the mode should be `w`.",
+          "tool": "open_file",
+          "args": {
+            "path": "/scratch/my_analysis.h5",
+            "mode": "w"
+          },
+          "status": "pending",
+          "expected_result": "Success message with filename and mode"
+        }
+      ],
+      "final_answer": "I will open the file `/scratch/my_analysis.h5` in write mode ('w').",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "open_file(path: string, mode: string = r)\n\nOpen an HDF5 file with lazy loading. Must be called before any other file operations.\n\nParameters:\n  - path (string, required): Path to the HDF5 file\n  - mode (string, optional): Access mode: 'r' (read-only), 'r+' (read/write), 'w' (write), 'a' (append)\n\nReturns: string - Success message with filename and mode\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "User wants to create and write to a new HDF5 file for storing analysis results, potentially overwriting if it exists.",
+      "required_tools": [
+        "hdf5_open_file"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm done with the data file, please close it.",
+    "solution": {
+      "instruction": "I'm done with the data file, please close it.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to close the currently open HDF5 file. The `close_file()` API is designed for this purpose. It takes no parameters.",
+          "tool": "close_file",
+          "args": {},
+          "status": "pending",
+          "expected_result": "Confirmation message with filename"
+        }
+      ],
+      "final_answer": "Closing the data file. You will receive a confirmation message with the filename.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "close_file()\n\nClose the currently open HDF5 file and release resources.\n\nParameters:\n\nReturns: string - Confirmation message with filename\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "User has finished processing an HDF5 file and wants to release the resources it was using.",
+      "required_tools": [
+        "hdf5_close_file"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "After extracting the final data points from the simulation results stored in the HDF5 file, ensure all resources are freed to prevent memory leaks by closing the file. This needs to be done before initiating the next simulation run which relies on the same RAM.",
+    "solution": {
+      "instruction": "After extracting the final data points from the simulation results stored in the HDF5 file, ensure all resources are freed to prevent memory leaks by closing the file. This needs to be done before initiating the next simulation run which relies on the same RAM.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user instruction specifies that the HDF5 file should be closed after extracting the final data points. This is to release resources and prevent memory leaks before the next simulation run. Therefore, I should call the close_file tool.",
+          "tool": "close_file",
+          "args": {},
+          "status": "pending",
+          "expected_result": "Confirmation message with filename indicating that the file has been closed successfully."
+        }
+      ],
+      "final_answer": "To ensure resources are freed and prevent memory leaks, I have closed the HDF5 file. You should receive a confirmation message indicating the filename that was closed.",
+      "execution_validated": false,
+      "method": "multi",
+      "api_documentation": "close_file()\n\nClose the currently open HDF5 file and release resources.\n\nParameters:\n\nReturns: string - Confirmation message with filename\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "In a scientific simulation pipeline, closing the HDF5 file is crucial for memory management before proceeding to the next stage.",
+      "required_tools": [
+        "hdf5_close_file"
+      ],
+      "multi_tool": false,
+      "mode": "multi"
+    }
+  },
+  {
+    "instruction": "Tell me the name of the HDF5 file I'm currently working on.",
+    "solution": {
+      "instruction": "Tell me the name of the HDF5 file I'm currently working on.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to know the name of the currently open HDF5 file. The `get_filename()` API is designed to provide this information.",
+          "tool": "get_filename",
+          "args": {},
+          "status": "pending",
+          "expected_result": "The function will return a string containing either the filename of the currently open HDF5 file or the string 'No file currently open'."
+        }
+      ],
+      "final_answer": "The name of the HDF5 file you are currently working on is: [result of get_filename()]",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_filename()\n\nGet the path of the currently open HDF5 file.\n\nParameters:\n\nReturns: string - Current filename or 'No file currently open'\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "User wants to quickly verify the active file before saving changes.",
+      "required_tools": [
+        "hdf5_get_filename"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm writing a script to automate the backup of my HDF5 data. I need the full path to the currently open file so I can copy it to a remote server. Please provide it.",
+    "solution": {
+      "instruction": "I'm writing a script to automate the backup of my HDF5 data. I need the full path to the currently open file so I can copy it to a remote server. Please provide it.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user needs the full path to the currently open HDF5 file. The `get_filename()` API is designed to return exactly that.",
+          "tool": "get_filename",
+          "args": {},
+          "status": "pending",
+          "expected_result": "The full path to the currently open HDF5 file, or 'No file currently open' if no file is open."
+        }
+      ],
+      "final_answer": "To get the full path to the currently open HDF5 file, use the `get_filename()` function. It takes no arguments and returns the full path as a string, or 'No file currently open' if no file is open.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_filename()\n\nGet the path of the currently open HDF5 file.\n\nParameters:\n\nReturns: string - Current filename or 'No file currently open'\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "Scripting automation to backup data.",
+      "required_tools": [
+        "hdf5_get_filename"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Tell me the current access mode of the HDF5 file I have open.",
+    "solution": {
+      "instruction": "Tell me the current access mode of the HDF5 file I have open.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to know the access mode of the currently open HDF5 file. The `get_mode()` function returns the access mode of the currently open HDF5 file. It takes no arguments.",
+          "tool": "get_mode",
+          "args": {},
+          "status": "pending",
+          "expected_result": "Access mode ('r', 'r+', 'w', 'a') or 'No file currently open'"
+        }
+      ],
+      "final_answer": "The current access mode of the HDF5 file is: [result of get_mode()]",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_mode()\n\nGet the access mode of the currently open HDF5 file.\n\nParameters:\n\nReturns: string - Access mode ('r', 'r+', 'w', 'a') or 'No file currently open'\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user needs to verify if the HDF5 file is open in read-only or read-write mode before attempting to write data.",
+      "required_tools": [
+        "hdf5_get_mode"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm trying to debug why I can't write to my HDF5 file. Could you check the file's access mode to make sure it's not in read-only mode?",
+    "solution": {
+      "instruction": "I'm trying to debug why I can't write to my HDF5 file. Could you check the file's access mode to make sure it's not in read-only mode?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to know the access mode of the currently open HDF5 file to check if it's in read-only mode. The `get_mode()` API directly provides this information.",
+          "tool": "get_mode",
+          "args": {},
+          "status": "pending",
+          "expected_result": "The API will return a string representing the access mode, which will be one of 'r', 'r+', 'w', 'a', or 'No file currently open'."
+        }
+      ],
+      "final_answer": "I am checking the access mode of the HDF5 file. The access mode is: [result of get_mode()]. This will tell you if the file is open in read-only mode ('r'). If it is, you will need to open it in a mode that allows writing ('r+', 'w', or 'a').",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_mode()\n\nGet the access mode of the currently open HDF5 file.\n\nParameters:\n\nReturns: string - Access mode ('r', 'r+', 'w', 'a') or 'No file currently open'\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "A user is experiencing write errors and suspects the file might be opened in read-only mode.",
+      "required_tools": [
+        "hdf5_get_mode"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Extract the data stored at '/sensor_data/temperature' from the HDF5 file.",
+    "solution": {
+      "instruction": "Extract the data stored at '/sensor_data/temperature' from the HDF5 file.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to extract data from a specific path within the HDF5 file. The `get_by_path` API is designed for this purpose, taking the path as an argument.",
+          "tool": "get_by_path",
+          "args": {
+            "path": "/sensor_data/temperature"
+          },
+          "status": "pending",
+          "expected_result": "Object info including type, shape, dtype, and keys (for groups) of the data located at '/sensor_data/temperature'."
+        }
+      ],
+      "final_answer": "I have retrieved the data located at '/sensor_data/temperature'. The object info includes its type, shape, dtype, and keys (if it's a group).",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_by_path(path: string)\n\nGet a dataset or group by its path within the HDF5 file.\n\nParameters:\n  - path (string, required): Path to object within the file (e.g., '/results/temperature')\n\nReturns: object - Object info including type, shape, dtype, and keys (for groups)\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user wants to access temperature readings from a sensor log file.",
+      "required_tools": [
+        "hdf5_get_by_path"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I have a complex HDF5 file representing a simulation. I need to get the values located at '/simulation_results/timestep_500/particle_velocities' to analyze the particle movement at a specific time point.",
+    "solution": {
+      "instruction": "I have a complex HDF5 file representing a simulation. I need to get the values located at '/simulation_results/timestep_500/particle_velocities' to analyze the particle movement at a specific time point.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to retrieve data from a specific path within the HDF5 file. The `get_by_path` API is designed for this purpose. The path provided by the user should be passed as the `path` argument.",
+          "tool": "get_by_path",
+          "args": {
+            "path": "/simulation_results/timestep_500/particle_velocities"
+          },
+          "status": "pending",
+          "expected_result": "Object info including type, shape, dtype, and keys (for groups) of the dataset located at '/simulation_results/timestep_500/particle_velocities'"
+        }
+      ],
+      "final_answer": "I can retrieve the particle velocities at timestep 500 for you. I will use the path '/simulation_results/timestep_500/particle_velocities' to get the data. The result will include the type, shape, and dtype of the data.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_by_path(path: string)\n\nGet a dataset or group by its path within the HDF5 file.\n\nParameters:\n  - path (string, required): Path to object within the file (e.g., '/results/temperature')\n\nReturns: object - Object info including type, shape, dtype, and keys (for groups)\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "Analyzing simulation output data at a particular timestep.",
+      "required_tools": [
+        "hdf5_get_by_path"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Show me all the available options within this section.",
+    "solution": {
+      "instruction": "Show me all the available options within this section.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to see all available options (keys) within the current section/group. The `list_keys()` API is designed to list all keys (children) in the current group, which perfectly matches the user's request.",
+          "tool": "list_keys",
+          "args": {},
+          "status": "pending",
+          "expected_result": "A JSON list of keys (strings) representing the available options within the current section."
+        }
+      ],
+      "final_answer": "Here are the available options within this section: [list of keys]",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "list_keys()\n\nList all keys (children) in the current group.\n\nParameters:\n\nReturns: array - JSON list of keys\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user is exploring a configuration panel and wants to see what sub-settings are available.",
+      "required_tools": [
+        "hdf5_list_keys"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm trying to organize my data. Can you display a list of all the categories I've created?",
+    "solution": {
+      "instruction": "I'm trying to organize my data. Can you display a list of all the categories I've created?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is asking for a list of categories, which are represented as keys within the current group. The `list_keys()` API is designed to retrieve this list.",
+          "tool": "list_keys",
+          "args": {},
+          "status": "pending",
+          "expected_result": "A JSON list of strings, where each string is a key (category name) in the current group. For example: [\"category1\", \"category2\", \"category3\"]"
+        }
+      ],
+      "final_answer": "Here is a list of all the categories you've created: [\"category1\", \"category2\", \"category3\"]",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "list_keys()\n\nList all keys (children) in the current group.\n\nParameters:\n\nReturns: array - JSON list of keys\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "A user wants to review the organizational structure of their data, such as tags or folders.",
+      "required_tools": [
+        "hdf5_list_keys"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I want to print the type of each node in my file.",
+    "solution": {
+      "instruction": "I want to print the type of each node in my file.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to print the type of each node in the file. The `visit` API allows visiting all nodes in the file recursively and applying a callback function to each node. The callback function can then print the type of the node. Therefore, I should use the `visit` API and pass the name of a callback function as an argument.",
+          "tool": "visit",
+          "args": {
+            "callback_fn": "print_node_type"
+          },
+          "status": "pending",
+          "expected_result": "A JSON list of all paths with their types will be returned. The callback function `print_node_type` will be executed for each node, presumably printing the type of each node to the console."
+        }
+      ],
+      "final_answer": "To print the type of each node in your file, call the `visit` API with the callback function name `print_node_type`. This will execute the `print_node_type` function for each node in the file, and return a JSON list of all paths with their types. Make sure you have defined a function named `print_node_type` that takes a node as input and prints its type.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "visit(callback_fn: string)\n\nVisit all nodes in the file recursively, starting from root.\n\nParameters:\n  - callback_fn (string, required): Callback function name to apply to each node\n\nReturns: array - JSON list of all paths with their types\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "Debugging a syntax tree and understanding the structure of the code.",
+      "required_tools": [
+        "hdf5_visit"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I need to refactor my code and want to automatically rename all instances of a specific variable. Use a callback function 'rename_variable' that takes the node and the old variable name as arguments, and modifies the node if it's an identifier matching the old name. Ensure that the 'rename_variable' function handles different scopes correctly to avoid unintended renaming.",
+    "solution": {
+      "instruction": "I need to refactor my code and want to automatically rename all instances of a specific variable. Use a callback function 'rename_variable' that takes the node and the old variable name as arguments, and modifies the node if it's an identifier matching the old name. Ensure that the 'rename_variable' function handles different scopes correctly to avoid unintended renaming.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to visit all nodes in the file and apply a function to rename a specific variable. The `visit` API is designed for this purpose, allowing a callback function to be applied to each node. The callback function will handle the renaming logic.",
+          "tool": "visit",
+          "args": {
+            "callback_fn": "rename_variable"
+          },
+          "status": "pending",
+          "expected_result": "A JSON list of all paths with their types after the 'rename_variable' function has been applied to each node. The nodes representing the old variable name will be updated to the new variable name where appropriate based on scoping rules."
+        }
+      ],
+      "final_answer": "To rename all instances of a specific variable, use the `visit` API with the callback function 'rename_variable'. This function should take the node and the old variable name as arguments, and modify the node if it's an identifier matching the old name, considering different scopes to avoid unintended renaming. The API call is: `visit(callback_fn: 'rename_variable')`",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "visit(callback_fn: string)\n\nVisit all nodes in the file recursively, starting from root.\n\nParameters:\n  - callback_fn (string, required): Callback function name to apply to each node\n\nReturns: array - JSON list of all paths with their types\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "Automated code refactoring to improve readability and maintainability.",
+      "required_tools": [
+        "hdf5_visit"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Read the entire dataset located at '/sensor_data/2024-01-01.csv' so I can analyze the sensor readings for that day.",
+    "solution": {
+      "instruction": "Read the entire dataset located at '/sensor_data/2024-01-01.csv' so I can analyze the sensor readings for that day.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to read the entire dataset located at a specific path. The `read_full_dataset` API is designed for this purpose, especially for large datasets, and it handles chunking automatically. The path to the dataset is the only required argument.",
+          "tool": "read_full_dataset",
+          "args": {
+            "path": "/sensor_data/2024-01-01.csv"
+          },
+          "status": "pending",
+          "expected_result": "A success message with a description of the data and the array contents of the dataset located at '/sensor_data/2024-01-01.csv'."
+        }
+      ],
+      "final_answer": "I have read the entire dataset located at '/sensor_data/2024-01-01.csv'. The result includes a description of the data and the array contents.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "read_full_dataset(path: string)\n\nRead an entire dataset with efficient chunked reading for large datasets. Automatically uses chunked reading for datasets >100MB.\n\nParameters:\n  - path (string, required): Path to the dataset within the file\n\nReturns: object - Success message with data description and array contents\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A data scientist needs to read sensor data for analysis.",
+      "required_tools": [
+        "hdf5_read_full_dataset"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "My machine learning model training job failed because of a memory error. I think the dataset at '/training_data/complete_dataset.parquet' is too large to load at once. Can you read this dataset using the `read_full_dataset` tool, which uses chunked reading, so I can verify the data and potentially preprocess it in chunks myself before training?",
+    "solution": {
+      "instruction": "My machine learning model training job failed because of a memory error. I think the dataset at '/training_data/complete_dataset.parquet' is too large to load at once. Can you read this dataset using the `read_full_dataset` tool, which uses chunked reading, so I can verify the data and potentially preprocess it in chunks myself before training?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is experiencing memory issues when loading a large dataset and wants to use chunked reading to load the dataset. The `read_full_dataset` tool is designed for this purpose and automatically uses chunked reading for datasets larger than 100MB. The user has provided the path to the dataset.",
+          "tool": "read_full_dataset",
+          "args": {
+            "path": "/training_data/complete_dataset.parquet"
+          },
+          "status": "pending",
+          "expected_result": "A success message with data description and array contents of the dataset at '/training_data/complete_dataset.parquet', read using chunked reading if the dataset is larger than 100MB."
+        }
+      ],
+      "final_answer": "I have read the dataset at '/training_data/complete_dataset.parquet' using chunked reading. The result includes a success message with a description of the data and its contents.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "read_full_dataset(path: string)\n\nRead an entire dataset with efficient chunked reading for large datasets. Automatically uses chunked reading for datasets >100MB.\n\nParameters:\n  - path (string, required): Path to the dataset within the file\n\nReturns: object - Success message with data description and array contents\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "A machine learning engineer is debugging a memory error during model training and needs to read a large dataset efficiently.",
+      "required_tools": [
+        "hdf5_read_full_dataset"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Load the first 100 rows of the dataset at '/my_large_data.csv'.",
+    "solution": {
+      "instruction": "Load the first 100 rows of the dataset at '/my_large_data.csv'.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to load the first 100 rows of a dataset. The `read_partial_dataset` API is designed for this purpose, allowing us to read a specific slice of the dataset. We need to specify the path to the dataset and the number of rows to read. Since we want the first 100 rows, the starting index should be 0 for the row dimension. Assuming the dataset is 2D, we'll set the starting index for the column dimension to 0 as well. The count for the row dimension should be 100, and we'll assume we want to read all columns, so we'll set the count for the column dimension to -1, which is a common convention to read all columns. However, the API documentation doesn't explicitly state how to read all columns, so I will assume the user wants to read all columns and set the column count to a large number like 1000. If the dataset has fewer than 1000 columns, it will simply read all of them.",
+          "tool": "read_partial_dataset",
+          "args": {
+            "path": "/my_large_data.csv",
+            "start": [
+              0,
+              0
+            ],
+            "count": [
+              100,
+              1000
+            ]
+          },
+          "status": "pending",
+          "expected_result": "Dataset slice with 100 rows and metadata (shape, dtype)"
+        }
+      ],
+      "final_answer": "I have loaded the first 100 rows of the dataset at '/my_large_data.csv'. The result is a dataset slice with metadata including shape and data type.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "read_partial_dataset(path: string, start: array, count: array)\n\nRead a portion of a dataset using slicing. Memory-efficient for large datasets.\n\nParameters:\n  - path (string, required): Path to the dataset\n  - start (array, optional): Starting indices for each dimension (e.g., [0, 0])\n  - count (array, optional): Number of elements to read per dimension (e.g., [100, 50])\n\nReturns: object - Dataset slice with metadata (shape, dtype)\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "User wants to quickly inspect the beginning of a large file.",
+      "required_tools": [
+        "hdf5_read_partial_dataset"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I have a large 3D medical imaging dataset located at '/medical_images/scan_1.nii'. I need to extract a smaller region of interest starting at the coordinates (50, 75, 20) and with dimensions (20, 30, 15) to analyze a specific tumor.",
+    "solution": {
+      "instruction": "I have a large 3D medical imaging dataset located at '/medical_images/scan_1.nii'. I need to extract a smaller region of interest starting at the coordinates (50, 75, 20) and with dimensions (20, 30, 15) to analyze a specific tumor.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to extract a specific region from a large dataset. The `read_partial_dataset` API is designed for this purpose, allowing memory-efficient reading of portions of a dataset. The user provides the path, start coordinates, and dimensions of the region of interest, which directly correspond to the `path`, `start`, and `count` parameters of the API.",
+          "tool": "read_partial_dataset",
+          "args": {
+            "path": "/medical_images/scan_1.nii",
+            "start": [
+              50,
+              75,
+              20
+            ],
+            "count": [
+              20,
+              30,
+              15
+            ]
+          },
+          "status": "pending",
+          "expected_result": "A dataset slice object containing the region of interest from '/medical_images/scan_1.nii', starting at (50, 75, 20) with dimensions (20, 30, 15), along with metadata such as shape and dtype."
+        }
+      ],
+      "final_answer": "I will extract the region of interest from the dataset at '/medical_images/scan_1.nii' starting at coordinates (50, 75, 20) with dimensions (20, 30, 15). The result will be a dataset slice object containing the extracted region and its metadata.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "read_partial_dataset(path: string, start: array, count: array)\n\nRead a portion of a dataset using slicing. Memory-efficient for large datasets.\n\nParameters:\n  - path (string, required): Path to the dataset\n  - start (array, optional): Starting indices for each dimension (e.g., [0, 0])\n  - count (array, optional): Number of elements to read per dimension (e.g., [100, 50])\n\nReturns: object - Dataset slice with metadata (shape, dtype)\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "Medical researcher analyzing a specific region of interest in a large 3D medical image.",
+      "required_tools": [
+        "hdf5_read_partial_dataset"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "What is the shape of the image dataset located at '/images/training_set.npy'?",
+    "solution": {
+      "instruction": "What is the shape of the image dataset located at '/images/training_set.npy'?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is asking for the shape of a dataset. The `get_shape` API is designed to return the shape of a dataset given its path. The path to the dataset is provided in the user's request.",
+          "tool": "get_shape",
+          "args": {
+            "path": "/images/training_set.npy"
+          },
+          "status": "pending",
+          "expected_result": "Shape tuple as string (e.g., '(1000, 500)')"
+        }
+      ],
+      "final_answer": "The shape of the dataset at '/images/training_set.npy' is (1000, 500).",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_shape(path: string)\n\nGet the shape (dimensions) of a dataset.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: string - Shape tuple as string (e.g., '(1000, 500)')\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user is exploring a dataset of images and wants to know its dimensions to understand the structure of the data.",
+      "required_tools": [
+        "hdf5_get_shape"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I have a large CSV file containing sensor readings at '/data/sensor_data.csv'. It's giving me memory errors when I try to load it all at once. Can you get_shape of the dataset at '/data/sensor_data.csv' so I can figure out how many rows and columns I'm dealing with and chunk it properly?",
+    "solution": {
+      "instruction": "I have a large CSV file containing sensor readings at '/data/sensor_data.csv'. It's giving me memory errors when I try to load it all at once. Can you get_shape of the dataset at '/data/sensor_data.csv' so I can figure out how many rows and columns I'm dealing with and chunk it properly?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to know the dimensions of the dataset located at '/data/sensor_data.csv'. The `get_shape` API is designed to provide this information. The path to the dataset should be passed as an argument to the API.",
+          "tool": "get_shape",
+          "args": {
+            "path": "/data/sensor_data.csv"
+          },
+          "status": "pending",
+          "expected_result": "Shape tuple as string (e.g., '(1000, 500)')"
+        }
+      ],
+      "final_answer": "I have retrieved the shape of the dataset at '/data/sensor_data.csv'. The shape is provided as a tuple representing the dimensions of the dataset. For example: '(1000, 500)'.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_shape(path: string)\n\nGet the shape (dimensions) of a dataset.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: string - Shape tuple as string (e.g., '(1000, 500)')\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "A data scientist is facing memory limitations when loading a large CSV file and needs the dataset's dimensions to implement a chunking strategy.",
+      "required_tools": [
+        "hdf5_get_shape"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "What is the data type of the 'sensor_readings.csv' dataset?",
+    "solution": {
+      "instruction": "What is the data type of the 'sensor_readings.csv' dataset?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is asking for the data type of the 'sensor_readings.csv' dataset. The `get_dtype` API can be used to retrieve the data type of a dataset given its path.",
+          "tool": "get_dtype",
+          "args": {
+            "path": "sensor_readings.csv"
+          },
+          "status": "pending",
+          "expected_result": "Data type as string (e.g., 'float64', 'int32')"
+        }
+      ],
+      "final_answer": "The data type of the 'sensor_readings.csv' dataset is [Data type as string (e.g., 'float64', 'int32')].",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_dtype(path: string)\n\nGet the data type of a dataset.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: string - Data type as string (e.g., 'float64', 'int32')\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "Determining the appropriate data type for a column in a CSV file before data analysis.",
+      "required_tools": [
+        "hdf5_get_dtype"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I have a large dataset stored at '/mnt/data/processed_images' which contains image data. I need to ensure the data is in a suitable format for training a deep learning model. Can you tell me what the data type of this dataset is so I can determine if I need to perform any type conversions? The path is '/mnt/data/processed_images'.",
+    "solution": {
+      "instruction": "I have a large dataset stored at '/mnt/data/processed_images' which contains image data. I need to ensure the data is in a suitable format for training a deep learning model. Can you tell me what the data type of this dataset is so I can determine if I need to perform any type conversions? The path is '/mnt/data/processed_images'.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to know the data type of a dataset. The `get_dtype` API is designed for this purpose. The path to the dataset, '/mnt/data/processed_images', should be passed as the `path` argument.",
+          "tool": "get_dtype",
+          "args": {
+            "path": "/mnt/data/processed_images"
+          },
+          "status": "pending",
+          "expected_result": "The API will return a string representing the data type of the dataset, such as 'float32', 'uint8', etc."
+        }
+      ],
+      "final_answer": "The data type of the dataset at '/mnt/data/processed_images' is [result of get_dtype]. This information should help you determine if any type conversions are necessary for your deep learning model.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_dtype(path: string)\n\nGet the data type of a dataset.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: string - Data type as string (e.g., 'float64', 'int32')\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "Checking the data type of a large image dataset before training a deep learning model to ensure compatibility.",
+      "required_tools": [
+        "hdf5_get_dtype"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "How many data points are in the file located at '/home/user/data/sensor_readings.csv'?",
+    "solution": {
+      "instruction": "How many data points are in the file located at '/home/user/data/sensor_readings.csv'?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to know the number of data points in a file. The `get_size` API is designed to return the number of elements in a dataset. The path to the dataset is provided in the user request.",
+          "tool": "get_size",
+          "args": {
+            "path": "/home/user/data/sensor_readings.csv"
+          },
+          "status": "pending",
+          "expected_result": "An integer representing the total number of elements in the dataset located at '/home/user/data/sensor_readings.csv'"
+        }
+      ],
+      "final_answer": "The file '/home/user/data/sensor_readings.csv' contains [result] data points.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_size(path: string)\n\nGet the total number of elements in a dataset.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: integer - Total number of elements\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user wants to understand the size of a dataset before processing it.",
+      "required_tools": [
+        "hdf5_get_size"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I want to know the total number of images in the directory '/mnt/raid/image_data/2024_experiments'. This directory contains many subdirectories, each representing a different experiment. Can you get the total size of the combined dataset?",
+    "solution": {
+      "instruction": "I want to know the total number of images in the directory '/mnt/raid/image_data/2024_experiments'. This directory contains many subdirectories, each representing a different experiment. Can you get the total size of the combined dataset?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to know the total number of images in the directory '/mnt/raid/image_data/2024_experiments'. I can use the `get_size` tool to get the total number of elements in the dataset.",
+          "tool": "get_size",
+          "args": {
+            "path": "/mnt/raid/image_data/2024_experiments"
+          },
+          "status": "pending",
+          "expected_result": "An integer representing the total number of images in the directory."
+        }
+      ],
+      "final_answer": "The total number of images in the directory '/mnt/raid/image_data/2024_experiments' is [result of get_size].",
+      "execution_validated": false,
+      "method": "multi",
+      "api_documentation": "get_size(path: string)\n\nGet the total number of elements in a dataset.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: integer - Total number of elements\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "A researcher is managing a large image dataset organized in subdirectories and needs to determine the total number of images for resource planning.",
+      "required_tools": [
+        "hdf5_get_size"
+      ],
+      "multi_tool": false,
+      "mode": "multi"
+    }
+  },
+  {
+    "instruction": "I need to understand how my image dataset is stored on disk. Can you get the chunk information for the dataset located at `/mnt/images/big_image_collection.hdf5`?",
+    "solution": {
+      "instruction": "I need to understand how my image dataset is stored on disk. Can you get the chunk information for the dataset located at `/mnt/images/big_image_collection.hdf5`?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to understand the chunking of their image dataset. The `get_chunks` API is designed to provide chunk information for a given dataset path. The path to the dataset is provided in the user request.",
+          "tool": "get_chunks",
+          "args": {
+            "path": "/mnt/images/big_image_collection.hdf5"
+          },
+          "status": "pending",
+          "expected_result": "A JSON object containing the chunk shape and size in KB for the dataset located at `/mnt/images/big_image_collection.hdf5`."
+        }
+      ],
+      "final_answer": "I have retrieved the chunk shape and size in KB for the dataset located at `/mnt/images/big_image_collection.hdf5`. This information should help you understand how the dataset is stored on disk.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_chunks(path: string)\n\nGet chunk information for a dataset, useful for understanding I/O performance.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: object - Chunk shape and size in KB\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "Analyzing the storage layout of a large image dataset for optimization.",
+      "required_tools": [
+        "hdf5_get_chunks"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "My data processing pipeline is running very slowly when accessing the data in `/data/climate_simulation_results.zarr`.  Get the chunk information for this dataset to help me diagnose potential I/O bottlenecks.  I suspect the chunk size is suboptimal for my access pattern.",
+    "solution": {
+      "instruction": "My data processing pipeline is running very slowly when accessing the data in `/data/climate_simulation_results.zarr`.  Get the chunk information for this dataset to help me diagnose potential I/O bottlenecks.  I suspect the chunk size is suboptimal for my access pattern.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to get chunk information for a Zarr dataset to diagnose I/O performance issues. The `get_chunks` API is designed for this purpose. The path to the dataset is provided in the user request.",
+          "tool": "get_chunks",
+          "args": {
+            "path": "/data/climate_simulation_results.zarr"
+          },
+          "status": "pending",
+          "expected_result": "{'chunk_shape': [100, 100, 10], 'chunk_size_kb': 2048}"
+        }
+      ],
+      "final_answer": "Here is the chunk information for the dataset at `/data/climate_simulation_results.zarr`.  This will show you the chunk shape and size in KB, which can help you diagnose I/O bottlenecks.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "get_chunks(path: string)\n\nGet chunk information for a dataset, useful for understanding I/O performance.\n\nParameters:\n  - path (string, required): Path to the dataset\n\nReturns: object - Chunk shape and size in KB\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "Troubleshooting performance issues in a data processing pipeline by examining chunk layout.",
+      "required_tools": [
+        "hdf5_get_chunks"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "What is the calibration date stored for the detector at '/detector_1'? The attribute name is 'calibration_date'.",
+    "solution": {
+      "instruction": "What is the calibration date stored for the detector at '/detector_1'? The attribute name is 'calibration_date'.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is asking to read an attribute named 'calibration_date' from the HDF5 object located at the path '/detector_1'. The `read_attribute` API function is designed to read attributes from HDF5 objects. Therefore, I should use the `read_attribute` API function and pass '/detector_1' as the path and 'calibration_date' as the attribute name.",
+          "tool": "read_attribute",
+          "args": {
+            "path": "/detector_1",
+            "name": "calibration_date"
+          },
+          "status": "pending",
+          "expected_result": "The value of the 'calibration_date' attribute, which could be a string, number, or array representing the calibration date."
+        }
+      ],
+      "final_answer": "The calibration date for detector at '/detector_1' is [result of read_attribute API call].",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "read_attribute(path: string, name: string)\n\nRead a specific attribute from an HDF5 object (dataset or group).\n\nParameters:\n  - path (string, required): Path to the object\n  - name (string, required): Name of the attribute to read\n\nReturns: any - Attribute value (string, number, or array)\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "Retrieving metadata about a scientific instrument from a data file.",
+      "required_tools": [
+        "hdf5_read_attribute"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "The simulation data is stored in an HDF5 file. I want to analyze the simulation parameters. Specifically, I need to extract the 'initial_velocity' from the '/simulation_setup/particles' group and the 'grid_spacing' from the '/simulation_setup/grid' group. Store these values in a dictionary with keys 'initial_velocity' and 'grid_spacing'.",
+    "solution": {
+      "instruction": "The simulation data is stored in an HDF5 file. I want to analyze the simulation parameters. Specifically, I need to extract the 'initial_velocity' from the '/simulation_setup/particles' group and the 'grid_spacing' from the '/simulation_setup/grid' group. Store these values in a dictionary with keys 'initial_velocity' and 'grid_spacing'.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to read attributes from an HDF5 file. The `read_attribute` API is designed for this purpose. I need to make two calls to `read_attribute`, one for 'initial_velocity' and one for 'grid_spacing'.",
+          "tool": "read_attribute",
+          "args": {
+            "path": "/simulation_setup/particles",
+            "name": "initial_velocity"
+          },
+          "status": "pending",
+          "expected_result": "Value of the 'initial_velocity' attribute from the '/simulation_setup/particles' group."
+        }
+      ],
+      "final_answer": "I will read the 'initial_velocity' attribute from the '/simulation_setup/particles' group.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "read_attribute(path: string, name: string)\n\nRead a specific attribute from an HDF5 object (dataset or group).\n\nParameters:\n  - path (string, required): Path to the object\n  - name (string, required): Name of the attribute to read\n\nReturns: any - Attribute value (string, number, or array)\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "Automating data extraction from a simulation output file for analysis.",
+      "required_tools": [
+        "hdf5_read_attribute"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Show me the attributes of the 'temperature_data' group within the main dataset.",
+    "solution": {
+      "instruction": "Show me the attributes of the 'temperature_data' group within the main dataset.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to see the attributes of a specific group within the HDF5 dataset. The `list_attributes` API is designed for this purpose, as it lists all attributes of an HDF5 object given its path.",
+          "tool": "list_attributes",
+          "args": {
+            "path": "/temperature_data"
+          },
+          "status": "pending",
+          "expected_result": "A JSON dictionary containing the attributes and their values associated with the 'temperature_data' group."
+        }
+      ],
+      "final_answer": "Here are the attributes of the 'temperature_data' group: [JSON dictionary of attributes]",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "list_attributes(path: string)\n\nList all attributes of an HDF5 object.\n\nParameters:\n  - path (string, required): Path to the object\n\nReturns: object - JSON dictionary of all attributes with their values\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "Inspecting a data file to understand its structure.",
+      "required_tools": [
+        "hdf5_list_attributes"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm analyzing simulation results stored in 'simulation_data.h5'. I need to extract all the attributes associated with the '/results/particle_positions/timestep_50' dataset to understand the simulation parameters used for that specific timestep. List them.",
+    "solution": {
+      "instruction": "I'm analyzing simulation results stored in 'simulation_data.h5'. I need to extract all the attributes associated with the '/results/particle_positions/timestep_50' dataset to understand the simulation parameters used for that specific timestep. List them.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to list the attributes of a specific dataset within an HDF5 file. The `list_attributes` API is designed for this purpose. The path to the dataset, '/results/particle_positions/timestep_50', needs to be provided as the argument.",
+          "tool": "list_attributes",
+          "args": {
+            "path": "/results/particle_positions/timestep_50"
+          },
+          "status": "pending",
+          "expected_result": "A JSON dictionary containing all attributes and their values associated with the '/results/particle_positions/timestep_50' dataset."
+        }
+      ],
+      "final_answer": "Here are the attributes associated with the '/results/particle_positions/timestep_50' dataset: [JSON dictionary of attributes and their values]",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "list_attributes(path: string)\n\nList all attributes of an HDF5 object.\n\nParameters:\n  - path (string, required): Path to the object\n\nReturns: object - JSON dictionary of all attributes with their values\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "Analyzing simulation data to understand the parameters used in a specific timestep.",
+      "required_tools": [
+        "hdf5_list_attributes"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Scan my project directory for all HDF5 files.",
+    "solution": {
+      "instruction": "Scan my project directory for all HDF5 files.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to scan a directory for HDF5 files. The `hdf5_parallel_scan` API is designed for this purpose and offers faster scanning than a sequential approach. The user specifies the directory to scan, which will be the project directory. Since the user wants to scan for *all* HDF5 files, the default pattern '*.h5' is sufficient.",
+          "tool": "hdf5_parallel_scan",
+          "args": {
+            "directory": "project_directory"
+          },
+          "status": "pending",
+          "expected_result": "A summary object containing the file count, dataset count, total size, and worker count for all HDF5 files found in the project directory."
+        }
+      ],
+      "final_answer": "Scanning your project directory for HDF5 files. This will return a summary with the file count, dataset count, total size, and worker count.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "hdf5_parallel_scan(directory: string, pattern: string = *.h5)\n\nFast multi-file scanning with parallel processing. 3-5x faster than sequential scanning.\n\nParameters:\n  - directory (string, required): Directory to scan for HDF5 files\n  - pattern (string, optional): File pattern to match (e.g., '*.h5', '**/*.hdf5')\n\nReturns: object - Summary with file count, dataset count, total size, and worker count\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user wants to get a list of all HDF5 files in their project directory.",
+      "required_tools": [
+        "hdf5_parallel_scan"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm running simulations and storing the results in HDF5 files. I need to quickly scan a very large directory structure, specifically all files ending with '.simulation.hdf5' inside the '/scratch/simulation_data' directory, to create an index of all simulation results. Can you do that?",
+    "solution": {
+      "instruction": "I'm running simulations and storing the results in HDF5 files. I need to quickly scan a very large directory structure, specifically all files ending with '.simulation.hdf5' inside the '/scratch/simulation_data' directory, to create an index of all simulation results. Can you do that?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to scan a directory for HDF5 files matching a specific pattern. The `hdf5_parallel_scan` API is designed for this purpose and offers faster performance than sequential scanning, which is important for large directories. The user specified the directory and file pattern, so I need to pass those as arguments to the API.",
+          "tool": "hdf5_parallel_scan",
+          "args": {
+            "directory": "/scratch/simulation_data",
+            "pattern": "*.simulation.hdf5"
+          },
+          "status": "pending",
+          "expected_result": "A summary object containing the file count, dataset count, total size, and worker count for all HDF5 files ending with '.simulation.hdf5' found within the '/scratch/simulation_data' directory."
+        }
+      ],
+      "final_answer": "I will scan the '/scratch/simulation_data' directory for all files ending with '.simulation.hdf5' and provide a summary including the file count, dataset count, total size, and worker count. The API call is: `hdf5_parallel_scan(directory='/scratch/simulation_data', pattern='*.simulation.hdf5')`",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "hdf5_parallel_scan(directory: string, pattern: string = *.h5)\n\nFast multi-file scanning with parallel processing. 3-5x faster than sequential scanning.\n\nParameters:\n  - directory (string, required): Directory to scan for HDF5 files\n  - pattern (string, optional): File pattern to match (e.g., '*.h5', '**/*.hdf5')\n\nReturns: object - Summary with file count, dataset count, total size, and worker count\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "A researcher needs to efficiently index simulation results spread across a large directory structure to enable faster data analysis and retrieval.",
+      "required_tools": [
+        "hdf5_parallel_scan"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Read the datasets at paths '/sensor_data/temperature' and '/sensor_data/humidity' from the HDF5 file.",
+    "solution": {
+      "instruction": "Read the datasets at paths '/sensor_data/temperature' and '/sensor_data/humidity' from the HDF5 file.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to read data from two datasets in an HDF5 file. The `hdf5_batch_read` API is designed for reading multiple datasets in parallel, which is exactly what the user needs. The API takes a list of dataset paths and an optional slice specification. In this case, we have the paths and no slice is specified.",
+          "tool": "hdf5_batch_read",
+          "args": {
+            "paths": [
+              "/sensor_data/temperature",
+              "/sensor_data/humidity"
+            ]
+          },
+          "status": "pending",
+          "expected_result": "A summary object containing information about the batch read, including details about the data read from '/sensor_data/temperature' and '/sensor_data/humidity'."
+        }
+      ],
+      "final_answer": "I will read the datasets at paths '/sensor_data/temperature' and '/sensor_data/humidity' and return a summary of the operation.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "hdf5_batch_read(paths: array, slice_spec: string)\n\nRead multiple datasets in one call with parallel processing. 4-8x faster than sequential reads.\n\nParameters:\n  - paths (array, required): List of dataset paths to read\n  - slice_spec (string, optional): Slice specification to apply to all datasets (e.g., '0:100')\n\nReturns: object - Summary of batch read with per-dataset info\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "Extracting sensor readings from an HDF5 file for analysis.",
+      "required_tools": [
+        "hdf5_batch_read"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I have a large HDF5 file containing image data from a microscopy experiment. I need to extract a specific region (rows 100 to 200, columns 50 to 150) from the datasets located at '/channel1', '/channel2', and '/channel3', and I need this done as quickly as possible.  Can you read these datasets using the `hdf5_batch_read` tool?",
+    "solution": {
+      "instruction": "I have a large HDF5 file containing image data from a microscopy experiment. I need to extract a specific region (rows 100 to 200, columns 50 to 150) from the datasets located at '/channel1', '/channel2', and '/channel3', and I need this done as quickly as possible.  Can you read these datasets using the `hdf5_batch_read` tool?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to read multiple datasets from an HDF5 file, specifying a slice for each dataset, and they want to do it as quickly as possible. The `hdf5_batch_read` tool is designed for this purpose, offering parallel processing for faster reads. The user specifies the dataset paths and the slice specification.",
+          "tool": "hdf5_batch_read",
+          "args": {
+            "paths": [
+              "/channel1",
+              "/channel2",
+              "/channel3"
+            ],
+            "slice_spec": "100:200,50:150"
+          },
+          "status": "pending",
+          "expected_result": "A summary object containing information about the batch read operation, including details for each dataset ('/channel1', '/channel2', '/channel3') such as the shape of the extracted data and any potential errors encountered during the read."
+        }
+      ],
+      "final_answer": "I will read the datasets at paths '/channel1', '/channel2', and '/channel3', extracting rows 100 to 200 and columns 50 to 150 from each. The results will be returned as a summary object.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "hdf5_batch_read(paths: array, slice_spec: string)\n\nRead multiple datasets in one call with parallel processing. 4-8x faster than sequential reads.\n\nParameters:\n  - paths (array, required): List of dataset paths to read\n  - slice_spec (string, optional): Slice specification to apply to all datasets (e.g., '0:100')\n\nReturns: object - Summary of batch read with per-dataset info\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "Processing microscopy image data for a specific region of interest across multiple channels.",
+      "required_tools": [
+        "hdf5_batch_read"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I have a very large HDF5 file called 'sensor_readings.h5' and I want to process it in chunks of 5000 data points each to analyze sensor data patterns.",
+    "solution": {
+      "instruction": "I have a very large HDF5 file called 'sensor_readings.h5' and I want to process it in chunks of 5000 data points each to analyze sensor data patterns.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to process a large HDF5 file in chunks. The `hdf5_stream_data` API is designed for this purpose, allowing efficient memory management by processing one chunk at a time. The user specifies the file path and chunk size.",
+          "tool": "hdf5_stream_data",
+          "args": {
+            "path": "sensor_readings.h5",
+            "chunk_size": 5000
+          },
+          "status": "pending",
+          "expected_result": "A streaming report with per-chunk statistics for 'sensor_readings.h5', processed in chunks of 5000 elements, up to a maximum of 100 chunks (default)."
+        }
+      ],
+      "final_answer": "To process your 'sensor_readings.h5' file in chunks of 5000 data points, use the following API call: `hdf5_stream_data(path='sensor_readings.h5', chunk_size=5000)`. This will return a streaming report with per-chunk statistics.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "hdf5_stream_data(path: string, chunk_size: integer = 1024, max_chunks: integer = 100)\n\nStream large datasets efficiently with memory management. Only keeps one chunk in memory at a time.\n\nParameters:\n  - path (string, required): Path to the large dataset\n  - chunk_size (integer, optional): Number of elements per chunk\n  - max_chunks (integer, optional): Maximum number of chunks to process\n\nReturns: object - Streaming report with per-chunk statistics\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "Analyzing sensor data from a large experiment or monitoring system.",
+      "required_tools": [
+        "hdf5_stream_data"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I need to extract the first 1000 chunks from a large simulation output stored in 'simulation_data.hdf5', using a chunk size of 2048, because my downstream analysis tool can only handle a limited number of data points at a time. I want to avoid loading the entire dataset into memory.",
+    "solution": {
+      "instruction": "I need to extract the first 1000 chunks from a large simulation output stored in 'simulation_data.hdf5', using a chunk size of 2048, because my downstream analysis tool can only handle a limited number of data points at a time. I want to avoid loading the entire dataset into memory.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to extract the first 1000 chunks from 'simulation_data.hdf5' with a chunk size of 2048. The hdf5_stream_data tool is designed for this purpose. I need to specify the path, chunk_size, and max_chunks.",
+          "tool": "hdf5_stream_data",
+          "args": {
+            "path": "simulation_data.hdf5",
+            "chunk_size": 2048,
+            "max_chunks": 1000
+          },
+          "status": "pending",
+          "expected_result": "A streaming report object containing per-chunk statistics for the first 1000 chunks of the dataset, each chunk containing 2048 elements."
+        }
+      ],
+      "final_answer": "I will extract the first 1000 chunks from 'simulation_data.hdf5', using a chunk size of 2048. The streaming report will provide statistics for each chunk.",
+      "execution_validated": false,
+      "method": "multi",
+      "api_documentation": "hdf5_stream_data(path: string, chunk_size: integer = 1024, max_chunks: integer = 100)\n\nStream large datasets efficiently with memory management. Only keeps one chunk in memory at a time.\n\nParameters:\n  - path (string, required): Path to the large dataset\n  - chunk_size (integer, optional): Number of elements per chunk\n  - max_chunks (integer, optional): Maximum number of chunks to process\n\nReturns: object - Streaming report with per-chunk statistics\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "Processing simulation data for visualization or further analysis in a memory-constrained environment.",
+      "required_tools": [
+        "hdf5_stream_data"
+      ],
+      "multi_tool": false,
+      "mode": "multi"
+    }
+  },
+  {
+    "instruction": "Calculate the mean and standard deviation of the data in `/simulation_1/output_data` and `/simulation_2/output_data`.",
+    "solution": {
+      "instruction": "Calculate the mean and standard deviation of the data in `/simulation_1/output_data` and `/simulation_2/output_data`.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to calculate the mean and standard deviation of two datasets. The `hdf5_aggregate_stats` API is designed for this purpose, allowing parallel computation and automatic sampling for large datasets. The paths to the datasets and the desired statistics need to be specified as arguments.",
+          "tool": "hdf5_aggregate_stats",
+          "args": {
+            "paths": [
+              "/simulation_1/output_data",
+              "/simulation_2/output_data"
+            ],
+            "stats": [
+              "mean",
+              "std"
+            ]
+          },
+          "status": "pending",
+          "expected_result": "{'/simulation_1/output_data': {'mean': ..., 'std': ...}, '/simulation_2/output_data': {'mean': ..., 'std': ...}, 'aggregate': {'mean': ..., 'std': ...}}"
+        }
+      ],
+      "final_answer": "I have calculated the mean and standard deviation for the datasets `/simulation_1/output_data` and `/simulation_2/output_data`. The results include per-dataset statistics and cross-dataset aggregation.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "hdf5_aggregate_stats(paths: array, stats: array)\n\nParallel statistics computation across multiple datasets. Supports automatic sampling for datasets >500MB.\n\nParameters:\n  - paths (array, required): List of dataset paths to compute statistics for\n  - stats (array, optional): Statistics to compute: mean, std, min, max, sum, count\n\nReturns: object - Per-dataset statistics plus cross-dataset aggregation\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user wants to quickly compare the central tendency and spread of two simulation datasets.",
+      "required_tools": [
+        "hdf5_aggregate_stats"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Compute the minimum, maximum, and sum of the data stored at `/experiment_a/sensor_data`, `/experiment_b/sensor_data`, and `/experiment_c/sensor_data`, but only calculate the count for `/experiment_a/sensor_data` and `/experiment_b/sensor_data`. If any of the datasets are larger than 500MB, use the automatic sampling. After running this command, provide the output in a single markdown table. Note that I am only concerned with 'min', 'max', 'sum' and 'count' statistics.",
+    "solution": {
+      "instruction": "Compute the minimum, maximum, and sum of the data stored at `/experiment_a/sensor_data`, `/experiment_b/sensor_data`, and `/experiment_c/sensor_data`, but only calculate the count for `/experiment_a/sensor_data` and `/experiment_b/sensor_data`. If any of the datasets are larger than 500MB, use the automatic sampling. After running this command, provide the output in a single markdown table. Note that I am only concerned with 'min', 'max', 'sum' and 'count' statistics.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "I need to compute the min, max, and sum for all three datasets and the count for two of them. I can use the `hdf5_aggregate_stats` tool to do this in parallel. I will specify the paths and the desired statistics.",
+          "tool": "hdf5_aggregate_stats",
+          "args": {
+            "paths": [
+              "/experiment_a/sensor_data",
+              "/experiment_b/sensor_data",
+              "/experiment_c/sensor_data"
+            ],
+            "stats": [
+              "min",
+              "max",
+              "sum",
+              "count"
+            ]
+          },
+          "status": "pending",
+          "expected_result": "A JSON object containing the min, max, sum, and count for each dataset, as well as aggregated statistics. The count for /experiment_c/sensor_data will likely be null or zero."
+        }
+      ],
+      "final_answer": "I have computed the minimum, maximum, and sum of the data stored at `/experiment_a/sensor_data`, `/experiment_b/sensor_data`, and `/experiment_c/sensor_data`, and the count for `/experiment_a/sensor_data` and `/experiment_b/sensor_data`. The results are shown in the table below. If any of the datasets were larger than 500MB, automatic sampling was used.\n\n| Dataset                     | min   | max   | sum   | count | \n|------------------------------|-------|-------|-------|-------|\n| /experiment_a/sensor_data | value | value | value | value |\n| /experiment_b/sensor_data | value | value | value | value |\n| /experiment_c/sensor_data | value | value | value |   N/A   |",
+      "execution_validated": false,
+      "method": "multi",
+      "api_documentation": "hdf5_aggregate_stats(paths: array, stats: array)\n\nParallel statistics computation across multiple datasets. Supports automatic sampling for datasets >500MB.\n\nParameters:\n  - paths (array, required): List of dataset paths to compute statistics for\n  - stats (array, optional): Statistics to compute: mean, std, min, max, sum, count\n\nReturns: object - Per-dataset statistics plus cross-dataset aggregation\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "A researcher is analyzing data from multiple experiments, each containing sensor readings. They need to find the range and total value for all experiments, but also want to quickly see how many data points were collected in two of the experiments only to confirm data integrity. The datasets might be large, so automatic sampling is important.",
+      "required_tools": [
+        "hdf5_aggregate_stats"
+      ],
+      "multi_tool": false,
+      "mode": "multi"
+    }
+  },
+  {
+    "instruction": "List the top-level folders in my data directory.",
+    "solution": {
+      "instruction": "List the top-level folders in my data directory.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to list the top-level folders in their data directory. The `analyze_dataset_structure` API can analyze the file organization and data patterns, which includes identifying the top-level folders. The path should be set to the root directory to get the top-level folders.",
+          "tool": "analyze_dataset_structure",
+          "args": {
+            "path": "/"
+          },
+          "status": "pending",
+          "expected_result": "A JSON object containing the structural analysis of the root directory, including the count of groups (folders), datasets (files), and their sizes."
+        }
+      ],
+      "final_answer": "Here's the structural analysis of your data directory, including the top-level folders and their sizes.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "analyze_dataset_structure(path: string = /)\n\nAnalyze and understand file organization and data patterns.\n\nParameters:\n  - path (string, optional): Path to analyze (defaults to root)\n\nReturns: object - Structural analysis with group count, dataset count, and sizes\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A user wants a quick overview of their data storage.",
+      "required_tools": [
+        "hdf5_analyze_structure"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm training a machine learning model and want to understand the structure of my image dataset located in `/datasets/images/`.  Analyze the directory structure to identify the number of subdirectories (likely classes), the average number of images per class, and whether there are any unexpected file types besides `.jpg` or `.png` in the image folders. Report any anomalies.",
+    "solution": {
+      "instruction": "I'm training a machine learning model and want to understand the structure of my image dataset located in `/datasets/images/`.  Analyze the directory structure to identify the number of subdirectories (likely classes), the average number of images per class, and whether there are any unexpected file types besides `.jpg` or `.png` in the image folders. Report any anomalies.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to analyze the structure of their image dataset. The `analyze_dataset_structure` API is designed for this purpose. The user specifies the path `/datasets/images/` which should be passed as the `path` argument.",
+          "tool": "analyze_dataset_structure",
+          "args": {
+            "path": "/datasets/images/"
+          },
+          "status": "pending",
+          "expected_result": "A JSON object containing the structural analysis of the dataset, including the number of groups (subdirectories), the number of datasets (files), and their sizes. The API will likely also identify any unexpected file types."
+        }
+      ],
+      "final_answer": "Analyzing the structure of your image dataset located at `/datasets/images/`. I will report the number of subdirectories (likely classes), the average number of images per class, and any unexpected file types besides `.jpg` or `.png`.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "analyze_dataset_structure(path: string = /)\n\nAnalyze and understand file organization and data patterns.\n\nParameters:\n  - path (string, optional): Path to analyze (defaults to root)\n\nReturns: object - Structural analysis with group count, dataset count, and sizes\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "A data scientist needs to ensure data quality and organization before model training.",
+      "required_tools": [
+        "hdf5_analyze_structure"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Find datasets similar to the one located at '/data/customer_records.csv'.",
+    "solution": {
+      "instruction": "Find datasets similar to the one located at '/data/customer_records.csv'.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is asking to find datasets similar to '/data/customer_records.csv'. The `find_similar_datasets` API is designed for this purpose. The path to the reference dataset should be passed as the `reference_path` argument. Since the user did not specify a similarity threshold, the default value of 0.8 should be used.",
+          "tool": "find_similar_datasets",
+          "args": {
+            "reference_path": "/data/customer_records.csv"
+          },
+          "status": "pending",
+          "expected_result": "A ranked list of datasets similar to '/data/customer_records.csv' with similarity scores, where each score is greater than or equal to 0.8."
+        }
+      ],
+      "final_answer": "I have found datasets similar to '/data/customer_records.csv' with a similarity threshold of 0.8. The results are a ranked list of similar datasets with their corresponding similarity scores.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "find_similar_datasets(reference_path: string, similarity_threshold: number = 0.8)\n\nFind datasets with similar characteristics to a reference. Compares shape, dtype, and size.\n\nParameters:\n  - reference_path (string, required): Path to the reference dataset\n  - similarity_threshold (number, optional): Similarity threshold from 0 to 1\n\nReturns: array - Ranked list of similar datasets with similarity scores\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A data scientist wants to explore available datasets related to customer information.",
+      "required_tools": [
+        "hdf5_find_similar"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I have a dataset at '/project_alpha/processed_images.npy' and I want to find datasets with at least 90% similarity in terms of shape, dtype, and size to help me augment my training data. Use a similarity threshold of 0.9.",
+    "solution": {
+      "instruction": "I have a dataset at '/project_alpha/processed_images.npy' and I want to find datasets with at least 90% similarity in terms of shape, dtype, and size to help me augment my training data. Use a similarity threshold of 0.9.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to find similar datasets to a given dataset. The `find_similar_datasets` API is designed for this purpose. The user specifies the path to the reference dataset and a similarity threshold.",
+          "tool": "find_similar_datasets",
+          "args": {
+            "reference_path": "/project_alpha/processed_images.npy",
+            "similarity_threshold": 0.9
+          },
+          "status": "pending",
+          "expected_result": "A ranked list of datasets similar to '/project_alpha/processed_images.npy' with similarity scores, where each dataset has a similarity score of at least 0.9."
+        }
+      ],
+      "final_answer": "I have found datasets with at least 90% similarity to '/project_alpha/processed_images.npy' based on shape, dtype, and size. The results are a ranked list of similar datasets with their corresponding similarity scores.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "find_similar_datasets(reference_path: string, similarity_threshold: number = 0.8)\n\nFind datasets with similar characteristics to a reference. Compares shape, dtype, and size.\n\nParameters:\n  - reference_path (string, required): Path to the reference dataset\n  - similarity_threshold (number, optional): Similarity threshold from 0 to 1\n\nReturns: array - Ranked list of similar datasets with similarity scores\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "A machine learning engineer needs to find complementary image datasets for training.",
+      "required_tools": [
+        "hdf5_find_similar"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm browsing my data directory. What interesting datasets are nearby that I might want to investigate?",
+    "solution": {
+      "instruction": "I'm browsing my data directory. What interesting datasets are nearby that I might want to investigate?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to find interesting datasets nearby their current location. The `suggest_next_exploration` API is designed for this purpose, suggesting datasets based on location, size, dimensionality, and naming patterns. The user is currently browsing their data directory, which implies the root path '/'.",
+          "tool": "suggest_next_exploration",
+          "args": {
+            "current_path": "/"
+          },
+          "status": "pending",
+          "expected_result": "An array of scored suggestions for datasets to explore, including shape and size information, based on the data available in the root directory."
+        }
+      ],
+      "final_answer": "Here are some interesting datasets in your data directory that you might want to explore. The suggestions are scored based on size, dimensionality, and naming patterns.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "suggest_next_exploration(current_path: string = /)\n\nSuggest interesting data to explore based on current location. Scores based on size (1-100MB ideal), dimensionality, and naming patterns.\n\nParameters:\n  - current_path (string, optional): Current location in the file\n\nReturns: array - Scored suggestions with shape and size information\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A data scientist is starting their day and wants to find a dataset to work with.",
+      "required_tools": [
+        "hdf5_suggest_exploration"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm currently looking at data in the '/project_alpha/results/model_v3' directory. Suggest a next exploration within that location or close by, prioritizing datasets with high dimensionality and relatively small file sizes.",
+    "solution": {
+      "instruction": "I'm currently looking at data in the '/project_alpha/results/model_v3' directory. Suggest a next exploration within that location or close by, prioritizing datasets with high dimensionality and relatively small file sizes.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "I need to find datasets within the '/project_alpha/results/model_v3' directory that have high dimensionality and relatively small file sizes. I can use the suggest_next_exploration tool to achieve this.",
+          "tool": "suggest_next_exploration",
+          "args": {
+            "current_path": "/project_alpha/results/model_v3"
+          },
+          "status": "pending",
+          "expected_result": "A list of scored suggestions for datasets to explore, including their shape and size information. The suggestions will be ranked based on dimensionality, size, and naming patterns."
+        }
+      ],
+      "final_answer": "I have requested a list of suggested datasets to explore within the '/project_alpha/results/model_v3' directory. The suggestions will be prioritized based on high dimensionality and relatively small file sizes.",
+      "execution_validated": false,
+      "method": "multi",
+      "api_documentation": "suggest_next_exploration(current_path: string = /)\n\nSuggest interesting data to explore based on current location. Scores based on size (1-100MB ideal), dimensionality, and naming patterns.\n\nParameters:\n  - current_path (string, optional): Current location in the file\n\nReturns: array - Scored suggestions with shape and size information\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "A machine learning engineer is analyzing the results of a particular model version and wants to explore related datasets to improve their understanding.",
+      "required_tools": [
+        "hdf5_suggest_exploration"
+      ],
+      "multi_tool": false,
+      "mode": "multi"
+    }
+  },
+  {
+    "instruction": "Check my data directory for I/O bottlenecks.",
+    "solution": {
+      "instruction": "Check my data directory for I/O bottlenecks.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to check a data directory for I/O bottlenecks. The `identify_io_bottlenecks` API is designed for this purpose. The user did not specify the directory, so I will let the API auto-discover the paths.",
+          "tool": "identify_io_bottlenecks",
+          "args": {},
+          "status": "pending",
+          "expected_result": "A list of datasets with performance issues and warnings, if any are found."
+        }
+      ],
+      "final_answer": "I have identified potential I/O bottlenecks in your data directory. The results, including any datasets with performance issues and warnings, are being returned.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "identify_io_bottlenecks(analysis_paths: array)\n\nIdentify potential I/O bottlenecks and performance issues. Detects: large datasets without chunking, small chunk sizes, missing compression, high-dimensional arrays.\n\nParameters:\n  - analysis_paths (array, optional): Paths to analyze (auto-discovers if not provided)\n\nReturns: array - List of datasets with performance issues and warnings\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "A data scientist wants to quickly assess the performance of their data storage.",
+      "required_tools": [
+        "hdf5_identify_bottlenecks"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "Analyze the following directories for potential I/O performance issues, specifically looking for large datasets without chunking, inefficient chunk sizes, missing compression, and high-dimensional arrays: '/home/user/image_data', '/mnt/external_drive/backup_data', '/var/log/application_logs'. I'm experiencing slow read times and need to optimize data access.",
+    "solution": {
+      "instruction": "Analyze the following directories for potential I/O performance issues, specifically looking for large datasets without chunking, inefficient chunk sizes, missing compression, and high-dimensional arrays: '/home/user/image_data', '/mnt/external_drive/backup_data', '/var/log/application_logs'. I'm experiencing slow read times and need to optimize data access.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is asking to analyze specific directories for I/O bottlenecks. The `identify_io_bottlenecks` API is designed for this purpose, taking an array of paths as input.",
+          "tool": "identify_io_bottlenecks",
+          "args": {
+            "analysis_paths": [
+              "/home/user/image_data",
+              "/mnt/external_drive/backup_data",
+              "/var/log/application_logs"
+            ]
+          },
+          "status": "pending",
+          "expected_result": "A list of datasets within the specified directories that exhibit I/O performance issues, such as large datasets without chunking, small chunk sizes, missing compression, or high-dimensional arrays, along with associated warnings."
+        }
+      ],
+      "final_answer": "Analyzing the following directories for I/O bottlenecks: /home/user/image_data, /mnt/external_drive/backup_data, /var/log/application_logs. I will identify datasets with issues like missing chunking, inefficient chunk sizes, missing compression, and high dimensionality and return a list of these datasets with warnings.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "identify_io_bottlenecks(analysis_paths: array)\n\nIdentify potential I/O bottlenecks and performance issues. Detects: large datasets without chunking, small chunk sizes, missing compression, high-dimensional arrays.\n\nParameters:\n  - analysis_paths (array, optional): Paths to analyze (auto-discovers if not provided)\n\nReturns: array - List of datasets with performance issues and warnings\n"
+    },
+    "metadata": {
+      "difficulty": "complex",
+      "scenario": "A system administrator is troubleshooting slow I/O performance on a server and wants to identify the root cause.",
+      "required_tools": [
+        "hdf5_identify_bottlenecks"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm training a machine learning model on a large image dataset located at '/mnt/data/images.hdf5', and I'm accessing the images in a completely random order. Can you suggest optimizations for this?",
+    "solution": {
+      "instruction": "I'm training a machine learning model on a large image dataset located at '/mnt/data/images.hdf5', and I'm accessing the images in a completely random order. Can you suggest optimizations for this?",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user is asking for optimization suggestions for accessing a dataset with a random access pattern. The `optimize_access_pattern` API is designed for this purpose. The dataset path is '/mnt/data/images.hdf5' and the access pattern is 'random'.",
+          "tool": "optimize_access_pattern",
+          "args": {
+            "dataset_path": "/mnt/data/images.hdf5",
+            "access_pattern": "random"
+          },
+          "status": "pending",
+          "expected_result": "Optimization recommendations specific to random access pattern for the given dataset."
+        }
+      ],
+      "final_answer": "I have submitted a request to optimize the data access pattern for your image dataset at '/mnt/data/images.hdf5', assuming a random access pattern. I will provide optimization recommendations as soon as they are available.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "optimize_access_pattern(dataset_path: string, access_pattern: string = sequential)\n\nSuggest better approaches for data access based on usage patterns.\n\nParameters:\n  - dataset_path (string, required): Path to the dataset to optimize\n  - access_pattern (string, optional): Pattern type: 'sequential', 'random', or 'batch'\n\nReturns: object - Optimization recommendations specific to the access pattern\n"
+    },
+    "metadata": {
+      "difficulty": "medium",
+      "scenario": "Optimizing data access for faster machine learning training.",
+      "required_tools": [
+        "hdf5_optimize_access"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  },
+  {
+    "instruction": "I'm processing a log file located at '/var/log/application.log' sequentially to identify errors.  Suggest ways to improve access.",
+    "solution": {
+      "instruction": "I'm processing a log file located at '/var/log/application.log' sequentially to identify errors.  Suggest ways to improve access.",
+      "reasoning_path": [
+        {
+          "step": 1,
+          "thought": "The user wants to optimize data access for a log file being processed sequentially. The `optimize_access_pattern` API is designed for this purpose. The dataset path is '/var/log/application.log' and the access pattern is 'sequential'.",
+          "tool": "optimize_access_pattern",
+          "args": {
+            "dataset_path": "/var/log/application.log",
+            "access_pattern": "sequential"
+          },
+          "status": "pending",
+          "expected_result": "Optimization recommendations specific to sequential access of the log file, such as suggesting using buffered readers or pre-fetching data."
+        }
+      ],
+      "final_answer": "To improve access when processing your log file sequentially, I recommend using buffered readers or pre-fetching data. The specific recommendations will depend on the underlying storage system and file format. I have sent a request to optimize access for the file '/var/log/application.log' with a sequential access pattern, and will provide more specific recommendations when they are available.",
+      "execution_validated": false,
+      "method": "single",
+      "api_documentation": "optimize_access_pattern(dataset_path: string, access_pattern: string = sequential)\n\nSuggest better approaches for data access based on usage patterns.\n\nParameters:\n  - dataset_path (string, required): Path to the dataset to optimize\n  - access_pattern (string, optional): Pattern type: 'sequential', 'random', or 'batch'\n\nReturns: object - Optimization recommendations specific to the access pattern\n"
+    },
+    "metadata": {
+      "difficulty": "simple",
+      "scenario": "Improving log file processing performance.",
+      "required_tools": [
+        "hdf5_optimize_access"
+      ],
+      "multi_tool": false,
+      "mode": "single"
+    }
+  }
+]
