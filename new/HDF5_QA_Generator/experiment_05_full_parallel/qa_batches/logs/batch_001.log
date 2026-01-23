@@ -1,6 +1,0 @@
-
-📊 Multi-Dimensional Scoring (DEITA)
-
-Loaded 500 pairs from 
-HDF5_QA_Generator/experiment_05_full_parallel/qa_batches/batch_001.json
-Weights: complexity=0.3, quality=0.5, diversity=0.2
