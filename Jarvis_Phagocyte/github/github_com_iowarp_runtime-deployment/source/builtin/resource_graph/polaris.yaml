@@ -1,0 +1,11 @@
+fs:
+- avail: 54975581388800
+  dev_type: hdd
+  device: null
+  fs_type: null
+  model: null
+  mount: /lus/grand/projects/VeloC/${USER}/SCS_lab
+  parent: null
+  shared: true
+  uuid: null
+  needs_root: false

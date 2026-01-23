@@ -1,0 +1,5 @@
+CONFIG_DIR: ${HOME}/jarvis-pipelines
+CUR_PIPELINE: null
+HOSTFILE: null
+PRIVATE_DIR: /scratch/${USER}/jarvis-pipelines # local SSD
+SHARED_DIR: ${HOME}/jarvis-pipelines
