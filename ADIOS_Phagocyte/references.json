@@ -1,0 +1,272 @@
+[
+  {
+    "type": "github",
+    "value": "ornladios/ADIOS2",
+    "title": "ADIOS2",
+    "authors": "",
+    "year": "",
+    "url": "https://github.com/ornladios/ADIOS2",
+    "metadata": {}
+  },
+  {
+    "type": "github",
+    "value": "eschnett/ADIOS2.jl",
+    "title": "ADIOS2.jl",
+    "authors": "",
+    "year": "",
+    "url": "https://github.com/eschnett/ADIOS2.jl",
+    "metadata": {}
+  },
+  {
+    "type": "arxiv",
+    "value": "2304.06603",
+    "title": "",
+    "authors": "",
+    "year": "",
+    "url": "https://arxiv.org/abs/2304.06603",
+    "metadata": {}
+  },
+  {
+    "type": "arxiv",
+    "value": "2410.00178",
+    "title": "",
+    "authors": "",
+    "year": "",
+    "url": "https://arxiv.org/abs/2410.00178",
+    "metadata": {}
+  },
+  {
+    "type": "doi",
+    "value": "10.1016/j.softx.2020.100561",
+    "title": "",
+    "authors": "",
+    "year": "",
+    "url": "https://doi.org/10.1016/j.softx.2020.100561",
+    "metadata": {}
+  },
+  {
+    "type": "doi",
+    "value": "10.1109/e-Science58273.2023.10254934",
+    "title": "",
+    "authors": "",
+    "year": "",
+    "url": "https://doi.org/10.1109/e-Science58273.2023.10254934",
+    "metadata": {}
+  },
+  {
+    "type": "doi",
+    "value": "10.48550/arXiv.2304.06603",
+    "title": "",
+    "authors": "",
+    "year": "",
+    "url": "https://doi.org/10.48550/arXiv.2304.06603",
+    "metadata": {}
+  },
+  {
+    "type": "paper",
+    "value": "ADIOS 2: The Adaptable Input Output System. A framework for high-performance data management",
+    "title": "ADIOS 2: The Adaptable Input Output System. A framework for high-performance data management",
+    "authors": "Godoy et al.",
+    "year": "",
+    "url": null,
+    "metadata": {
+      "doi": "10.1016/j.softx.2020.100561"
+    }
+  },
+  {
+    "type": "paper",
+    "value": "Online and Scalable Data Compression Pipeline with Guarantees on Quantities of Interest",
+    "title": "Online and Scalable Data Compression Pipeline with Guarantees on Quantities of Interest",
+    "authors": "Banerjee et al.",
+    "year": "",
+    "url": null,
+    "metadata": {
+      "doi": "10.1109/e-Science58273.2023.10254934"
+    }
+  },
+  {
+    "type": "paper",
+    "value": "Streaming Data in HPC Workflows Using ADIOS",
+    "title": "Streaming Data in HPC Workflows Using ADIOS",
+    "authors": "Podhorszki et al.",
+    "year": "2025",
+    "url": null,
+    "metadata": {}
+  },
+  {
+    "type": "paper",
+    "value": "Accelerating WRF I/O Performance with ADIOS2 and Network-based Streaming",
+    "title": "Accelerating WRF I/O Performance with ADIOS2 and Network-based Streaming",
+    "authors": "Laufer et al.",
+    "year": "",
+    "url": null,
+    "metadata": {
+      "doi": "10.48550/arXiv.2304.06603",
+      "arxiv_id": "2304.06603"
+    }
+  },
+  {
+    "type": "paper",
+    "value": "SST: The Sustainable Staging Transport",
+    "title": "SST: The Sustainable Staging Transport",
+    "authors": "Eisenhauer et al.",
+    "year": "",
+    "url": null,
+    "metadata": {
+      "arxiv_id": "2410.00178"
+    }
+  },
+  {
+    "type": "paper",
+    "value": "In Situ \u2013 In Transit Hybrid Analysis using Catalyst, ADIOS2 and ParaView",
+    "title": "In Situ \u2013 In Transit Hybrid Analysis using Catalyst, ADIOS2 and ParaView",
+    "authors": "Kitware",
+    "year": "",
+    "url": null,
+    "metadata": {}
+  },
+  {
+    "type": "paper",
+    "value": "Adaptable IO System Delivers the Data",
+    "title": "Adaptable IO System Delivers the Data",
+    "authors": "ORNL",
+    "year": "",
+    "url": null,
+    "metadata": {}
+  },
+  {
+    "type": "paper",
+    "value": "ADIOS 2.8 software release with new file format",
+    "title": "ADIOS 2.8 software release with new file format",
+    "authors": "ORNL",
+    "year": "",
+    "url": null,
+    "metadata": {}
+  },
+  {
+    "type": "paper",
+    "value": "ADIOS OLCF Presentation",
+    "title": "ADIOS OLCF Presentation",
+    "authors": "Klasky et al.",
+    "year": "",
+    "url": null,
+    "metadata": {}
+  },
+  {
+    "type": "pdf",
+    "value": "https://users.nccs.gov/~pnorbert/ADIOS_tutorial_SC23.pdf",
+    "title": "",
+    "authors": "",
+    "year": "",
+    "url": "https://users.nccs.gov/~pnorbert/ADIOS_tutorial_SC23.pdf",
+    "metadata": {}
+  },
+  {
+    "type": "pdf",
+    "value": "https://www.olcf.ornl.gov/wp-content/uploads/ADIOS_OLCF_July2024.pdf",
+    "title": "",
+    "authors": "",
+    "year": "",
+    "url": "https://www.olcf.ornl.gov/wp-content/uploads/ADIOS_OLCF_July2024.pdf",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://www.osti.gov/biblio/3002190",
+    "title": "www.osti.gov",
+    "authors": "",
+    "year": "",
+    "url": "https://www.osti.gov/biblio/3002190",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://www.kitware.com/in-situ-in-transit-hybrid-analysis-using-catalyst-adios2-and-paraview/",
+    "title": "www.kitware.com",
+    "authors": "",
+    "year": "",
+    "url": "https://www.kitware.com/in-situ-in-transit-hybrid-analysis-using-catalyst-adios2-and-paraview/",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://www.olcf.ornl.gov/2024/04/29/adaptable-io-system-delivers-the-data/",
+    "title": "www.olcf.ornl.gov",
+    "authors": "",
+    "year": "",
+    "url": "https://www.olcf.ornl.gov/2024/04/29/adaptable-io-system-delivers-the-data/",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://www.ornl.gov/research-highlight/adios-28-software-release-new-file-format",
+    "title": "www.ornl.gov",
+    "authors": "",
+    "year": "",
+    "url": "https://www.ornl.gov/research-highlight/adios-28-software-release-new-file-format",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://adios2.readthedocs.io/",
+    "title": "adios2.readthedocs.io",
+    "authors": "",
+    "year": "",
+    "url": "https://adios2.readthedocs.io/",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://adios2.readthedocs.io/en/latest/components/components.html",
+    "title": "adios2.readthedocs.io",
+    "authors": "",
+    "year": "",
+    "url": "https://adios2.readthedocs.io/en/latest/components/components.html",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://adios2.readthedocs.io/en/latest/engines/engines.html",
+    "title": "adios2.readthedocs.io",
+    "authors": "",
+    "year": "",
+    "url": "https://adios2.readthedocs.io/en/latest/engines/engines.html",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://adios2.readthedocs.io/en/latest/advanced/gpu_aware.html",
+    "title": "adios2.readthedocs.io",
+    "authors": "",
+    "year": "",
+    "url": "https://adios2.readthedocs.io/en/latest/advanced/gpu_aware.html",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://adios2.readthedocs.io/en/latest/advanced/campaign_management.html",
+    "title": "adios2.readthedocs.io",
+    "authors": "",
+    "year": "",
+    "url": "https://adios2.readthedocs.io/en/latest/advanced/campaign_management.html",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://cvw.cac.cornell.edu/parallel-io-libraries/adios/components",
+    "title": "cvw.cac.cornell.edu",
+    "authors": "",
+    "year": "",
+    "url": "https://cvw.cac.cornell.edu/parallel-io-libraries/adios/components",
+    "metadata": {}
+  },
+  {
+    "type": "website",
+    "value": "https://www.exascaleproject.org/research-project/adios/",
+    "title": "www.exascaleproject.org",
+    "authors": "",
+    "year": "",
+    "url": "https://www.exascaleproject.org/research-project/adios/",
+    "metadata": {}
+  }
+]

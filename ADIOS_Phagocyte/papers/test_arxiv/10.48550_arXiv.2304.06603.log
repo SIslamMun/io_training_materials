@@ -1,0 +1,12 @@
+==================================================
+Paper Retrieval Log
+==================================================
+DOI: 10.48550/arXiv.2304.06603
+Title: N/A
+Started: 2026-01-23 00:42:10
+
+  Trying direct PDF URL: https://arxiv.org/pdf/2304.06603v1.pdf...
+
+==================================================
+Completed: SUCCESS via direct_url
+File: ADIOS_Research/papers/test_arxiv/Fredj_2023_accelerating_wrf_io_performance_with_adios2_and.pdf

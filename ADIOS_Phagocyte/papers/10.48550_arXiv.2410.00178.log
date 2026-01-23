@@ -1,0 +1,12 @@
+==================================================
+Paper Retrieval Log
+==================================================
+DOI: 10.48550/arXiv.2410.00178
+Title: SST: The Sustainable Staging Transport
+Started: 2026-01-23 00:33:37
+
+  Trying direct PDF URL: https://arxiv.org/pdf/2410.00178v1.pdf...
+
+==================================================
+Completed: SUCCESS via direct_url
+File: ADIOS_Research/papers/Eisenhauer_2024_Streaming_Data_in_HPC_Workflows_Using_ADIOS.pdf

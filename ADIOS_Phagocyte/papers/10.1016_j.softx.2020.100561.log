@@ -1,0 +1,46 @@
+==================================================
+Paper Retrieval Log
+==================================================
+DOI: 10.1016/j.softx.2020.100561
+Title: N/A
+Started: 2026-01-23 00:51:02
+
+
+[UNPAYWALL] Starting...
+  Checking OA status for 10.1016/j.softx.2020.100561
+  Found PDF: https://escholarship.org/uc/item/4zn3r3d6
+  Result: not found - PDF download failed
+
+[ARXIV] Starting...
+  Searching arXiv by title: ADIOS 2: The Adaptable Input Output System. A fram...
+  Result: not found - not found on arXiv
+
+[PMC] Starting...
+  Looking up PMC ID for 10.1016/j.softx.2020.100561
+  Result: not found - no PMC ID for this DOI
+
+[BIORXIV] Starting...
+  Result: not found - not a bioRxiv DOI
+
+[SEMANTIC_SCHOLAR] Starting...
+  Looking up paper by DOI: 10.1016/j.softx.2020.100561
+  PDF URL: https://doi.org/10.1016/j.softx.2020.100561
+  Result: not found - PDF download failed
+
+[OPENALEX] Starting...
+  Looking up work by DOI: 10.1016/j.softx.2020.100561
+  OA URL: https://escholarship.org/uc/item/4zn3r3d6
+  Result: not found - PDF download failed
+
+[INSTITUTIONAL] Starting...
+  Result: not found - not authenticated
+
+[SCIHUB] Starting...
+  Trying Sci-Hub mirrors...
+  Trying by title: ADIOS 2: The Adaptable Input Output Syst...
+  Trying by DOI: 10.1016/j.softx.2020.100561
+  Result: SUCCESS - downloaded
+
+==================================================
+Completed: SUCCESS via scihub
+File: ADIOS_Research/papers/Godoy_2020_ADIOS_2_The_Adaptable_Input_Output_System.pdf

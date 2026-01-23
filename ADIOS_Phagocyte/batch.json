@@ -1,0 +1,98 @@
+[
+  {
+    "title": "",
+    "doi": "10.48550/arXiv.2304.06603",
+    "pdf_url": null,
+    "arxiv_id": "2304.06603"
+  },
+  {
+    "title": "",
+    "doi": "10.48550/arXiv.2410.00178",
+    "pdf_url": null,
+    "arxiv_id": "2410.00178"
+  },
+  {
+    "title": "",
+    "doi": "10.1016/j.softx.2020.100561",
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "",
+    "doi": "10.1109/e-Science58273.2023.10254934",
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "",
+    "doi": "10.48550/arXiv.2304.06603",
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "ADIOS 2: The Adaptable Input Output System. A framework for high-performance data management",
+    "doi": "10.1016/j.softx.2020.100561",
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "Online and Scalable Data Compression Pipeline with Guarantees on Quantities of Interest",
+    "doi": "10.1109/e-Science58273.2023.10254934",
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "Streaming Data in HPC Workflows Using ADIOS",
+    "doi": null,
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "Accelerating WRF I/O Performance with ADIOS2 and Network-based Streaming",
+    "doi": "10.48550/arXiv.2304.06603",
+    "pdf_url": null,
+    "arxiv_id": "2304.06603"
+  },
+  {
+    "title": "SST: The Sustainable Staging Transport",
+    "doi": null,
+    "pdf_url": null,
+    "arxiv_id": "2410.00178"
+  },
+  {
+    "title": "In Situ \u2013 In Transit Hybrid Analysis using Catalyst, ADIOS2 and ParaView",
+    "doi": null,
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "Adaptable IO System Delivers the Data",
+    "doi": null,
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "ADIOS 2.8 software release with new file format",
+    "doi": null,
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "ADIOS OLCF Presentation",
+    "doi": null,
+    "pdf_url": null,
+    "arxiv_id": null
+  },
+  {
+    "title": "ADIOS tutorial SC23",
+    "doi": null,
+    "pdf_url": "https://users.nccs.gov/~pnorbert/ADIOS_tutorial_SC23.pdf",
+    "arxiv_id": null
+  },
+  {
+    "title": "ADIOS OLCF July2024",
+    "doi": null,
+    "pdf_url": "https://www.olcf.ornl.gov/wp-content/uploads/ADIOS_OLCF_July2024.pdf",
+    "arxiv_id": null
+  }
+]
