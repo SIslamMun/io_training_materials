@@ -1,5 +1,0 @@
-CONFIG_DIR: ${HOME}/SCS_lab/jarvis_pipeline
-CUR_PIPELINE: null
-HOSTFILE: null
-PRIVATE_DIR: /tmp/${USER}/jarvis
-SHARED_DIR: /lus/grand/projects/VeloC/${USER}/SCS_lab/
