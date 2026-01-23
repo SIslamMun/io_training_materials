@@ -1,5 +1,0 @@
-CONFIG_DIR: ${HOME}/jarvis-pipelines
-CUR_PIPELINE: null
-HOSTFILE: null
-PRIVATE_DIR: /mnt/ssd/${USER}/jarvis-pipelines
-SHARED_DIR: ${HOME}/jarvis-pipelines

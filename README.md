@@ -11,7 +11,7 @@ The Phagocyte pipeline supports three research modes:
 | Mode | Description | Example |
 |------|-------------|---------|
 | **Directed Research** | Focused research with specific goals and queries | HDF5_Phagocyte |
-| **Undirected Research** | Exploratory research without predefined direction | (Future datasets) |
+| **Undirected Research** | Exploratory research without predefined direction | (ADIOS_Phagocyte) |
 | **No Research** | Artifact collection without research synthesis | JARVIS_Phagocyte |
 
 ---
