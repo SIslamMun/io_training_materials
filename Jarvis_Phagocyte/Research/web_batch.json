@@ -1,0 +1,30 @@
+[
+  {
+    "type": "url",
+    "path": "https://grc.iit.edu/members/jaime-cernuda/"
+  },
+  {
+    "type": "url",
+    "path": "https://grc.iit.edu/docs/jarvis/jarvis-cd/index/"
+  },
+  {
+    "type": "url",
+    "path": "https://grc.iit.edu/docs/jarvis/jarvis-cd/building-package/"
+  },
+  {
+    "type": "url",
+    "path": "https://grc.iit.edu/docs/jarvis/jarvis-cd/pipeline-tests/"
+  },
+  {
+    "type": "url",
+    "path": "https://grc.iit.edu/docs/jarvis/jarvis-cd/packages/wrf/"
+  },
+  {
+    "type": "url",
+    "path": "https://grc.iit.edu/docs/iowarp/deployment/jarvis/"
+  },
+  {
+    "type": "url",
+    "path": "https://grc.iit.edu/research/projects/iowarp/"
+  }
+]

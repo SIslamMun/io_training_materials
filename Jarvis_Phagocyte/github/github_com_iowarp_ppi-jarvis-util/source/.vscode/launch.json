@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug jarvis rg build",
+            "type": "python",
+            "python": "/home/llogan/.venv/bin/python",
+            "request": "launch",
+            "program": "/home/llogan/.venv/bin/jarvis",
+            "args": [
+                "rg",
+                "build"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
